@@ -1,0 +1,33 @@
+---
+title: "IRF_1"
+author: "Mohan Bi"
+date: "2024-01-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Library
+
+```{r Library}
+library(ggplot2)
+library(ggridges)
+library(patchwork)
+library(party)
+library(caret)
+library(dplyr)
+library(randomForest)
+library(dabestr)
+```
+
+### Import data
+
+```{r data}
+df=read.csv("/Users/mohanbi/Documents/GitHub/IRF/Master_list.csv", header = TRUE, sep = ";",skip = 1)
+df=df[,-19]
+df=df[,(1:21)]
+```
+
+
