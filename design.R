@@ -5,10 +5,10 @@ library(dplyr)
 All_com_matrix=function(selected_factor,Factor_pool,sample_size){
   FP=c(1:Factor_pool)
   AllCom=data.frame(t(combn(FP,selected_factor)))
-  combnation_number=length(combn(FP,selected_factor))/selected_factor
+  combnation_number=length(combn(FP, selected_factor)) / selected_factor
   c=c(rep(0,combnation_number))
   AllCom=mutate(AllCom, A=c,B=c,C=c,D=c,E=c,F=c,G=c,H=c,I=c,J=c,K=c,L=c,M=c,N=c,O=c)
-  L=vector()
+  L =vector()
   for (j in 1:selected_factor) {
     L[j]=AllCom[j]
     for (i in 1:combnation_number) {
@@ -25,7 +25,6 @@ All_com_matrix=function(selected_factor,Factor_pool,sample_size){
 }
 
 
-  
 
 ######Calculation##########
   for (calculation in 1:10) {
@@ -86,17 +85,17 @@ F4_com=c(1:M)
 Sample_population=c(1:Sample_size)
 
 for (i in F4_com) {
-  in_4=numeric(0)     
+  in_4 = numeric(0)
   for (k in Sample_population) {
-    if(Com_all[k,ImpI_4[[1]][i]]==1 & Com_all[k,ImpI_4[[2]][i]]==1 & Com_all[k,ImpI_4[[3]][i]]==1 & Com_all[k,ImpI_4[[4]][i]]==1)
-      in_4=append(in_4,Com_all[k,Factor_pool+2])
+    if(Com_all[k,ImpI_4[[1]][i]]==1 & Com_all[k,ImpI_4[[2]][i]]==1 & Com_all[k,ImpI_4[[3]][i]]==1 & Com_all[k,ImpI_4[[4]][i]]==1) # nolint
+      in_4 <- append(in_4, Com_all[k, Factor_pool + 2])
   }
   int_4[[i]]=in_4
 }
 
-sum_n=vector()
+sum_n = vector()
 for (i in 1:M) {
-  sum_n[i]=which.max(int_4[[i]])
+  sum_n[i] = which.max(int_4[[i]])
 }
 sum_max=max(sum_n)
 sum_min=min(sum_n)
